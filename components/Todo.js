@@ -62,6 +62,15 @@ class Todo extends Component {
         });
       }
     
+      renderEditForm() {
+        if (this.state.edit) {
+          return <form onSubmit={this.onUpdateHandle.bind(this)}>
+            <input type="text" name="updatedItem" className="item" defaultValue={this.state.title} />
+            <button className="update-add-item">Update</button>
+          </form>
+        }
+      }
+    
       onEditHandle(event) {
         this.setState({
           edit: true,
@@ -104,14 +113,7 @@ class Todo extends Component {
         });
       }
     
-      renderEditForm() {
-        if (this.state.edit) {
-          return <form onSubmit={this.onUpdateHandle.bind(this)}>
-            <input type="text" name="updatedItem" className="item" defaultValue={this.state.title} />
-            <button className="update-add-item">Update</button>
-          </form>
-        }
-      }
+
 
     render(){
 
